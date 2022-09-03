@@ -259,10 +259,12 @@ def mainLoop(gui):
     pass
 
 def main():
-    # The checkoutCode is given in the launch arguments.
-    # checkoutCode = sys.argv[1]
-    # for now we will set it to 21
-    checkoutCode = 1
+    # The checkoutCode is given in the launch arguments. If not, default to 1.
+    global checkoutCode
+    if len(sys.argv) > 1:
+        checkoutCode = sys.argv[1]
+    else:
+        checkoutCode = 1
     marketCode = None
     global barcodes, products, promotions, dbResponse, db
     db = mysql.connector.connect(
