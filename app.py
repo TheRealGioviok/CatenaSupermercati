@@ -299,7 +299,7 @@ def main():
 
     
     # Create the GUI.
-    gui = GUI(fullscreen=False, background="images/background.png", icon="images/icon.png")
+    gui = GUI(fullscreen=False, background="images/background.png", icon="images/icon.png", title="Checkout")
     # Register a font.
     gui.registerFont("default", "arial", 20)
     # Create inputBox.
@@ -393,8 +393,6 @@ def main():
 
     # Create the list component.
     listC = listComponent("list",(20,60), (800,600), ((0,0,0), (210,210,210),(150,150,150),(0,0,0)), gui.getFont("default"),None, 0, 24, None, None, None)
-    for i in range(50):
-        listC.addItem(Item("Item"+str(i), 0.5, i, i*2, i+i*2))
     # Register the list component.
     gui.addComponent(listC)
 
