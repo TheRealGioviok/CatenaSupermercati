@@ -5,7 +5,8 @@ Per setuppare il progetto, caricare sul motore mysql i file ```init.sql``` e ```
 Per installare i moduli richiesti per eseguire ```app.py```, basta usare il comando ```pip install -r requirements.txt```.
 
 ## Uso dell'interfaccia grafica ##
-
+Avviare semplicemente con ```app.py [checkoutId]```. ```checkoutID``` identifica la cassa che esegue l'interfaccia grafica.  Se non specificato, defaulta a ```0```.
+Per il corretto funzionamento della GUI, si presuppone l'accesso su rete locale comune al database.
 ### Aggiungere e rimuovere prodotti ###
 L'interfaccia grafica permette di aggiungere e togliere merce dal carrello in base ad un codice a barre. 
 Il comportamento dello scanner viene simulato da un box di input.
