@@ -1,8 +1,8 @@
 # CatenaSupermercati
 Progetto Basi di Dati
 
-Per setuppare il progetto, caricare sul motore mysql i file init.sql e operation.sql in sequenza.
-Per installare i moduli richiesti per eseguire app.py, basta usare il comando pip install -r requirements.txt.
+Per setuppare il progetto, caricare sul motore mysql i file ```init.sql``` e ```operation.sql``` in sequenza.
+Per installare i moduli richiesti per eseguire ```app.py```, basta usare il comando ```pip install -r requirements.txt```.
 L'interfaccia grafica permette di aggiungere e togliere merce dal carrello in base ad un codice a barre. Il comportamento dello scanner viene simulato da un box di input.
 Accanto ad esso, può essere inserita una quantità: positiva per aggiungere un prodotto, negativa per toglierlo.
 Può anche essere selezionata una tessera cliente. Il comportamento dello scanner tessere è, ancora una volta, simulato da un input box.
