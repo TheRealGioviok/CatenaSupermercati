@@ -14,7 +14,7 @@ Accanto ad esso, può essere inserita una quantità: positiva per aggiungere un 
 Può anche essere selezionata una tessera cliente. Il comportamento dello scanner tessere è, ancora una volta, simulato da un input box.
 ### Applicare sconti, calcolare il totale, eseguire o annullare acquisto ###
 Ci sono 4 pulsanti colorati, ognuno con una funzione diversa:
- - = (pulsante verde)     : permette di finalizzare l'acquisto, dovrebbe essere premuto solo dopo aver "ricevuto" il pagamento
- - UP! (pulsante blu)     : pulsante toggle, permette di scegliere se usare o meno i punti della tessera fedeltà. Non ha effetto se non è stata selezionata una tessera.
- - X (pulsante rosso)     : cancella tutti i dati di acquisto, resettando anche il cliente e tessera scansionata
- - Calc (pulsante giallo) : calcola il prezzo totale ed eventuale sconto, mostrandolo in alto a destra. Lo sconto è non nullo solo se c'è una tessera fedeltà
+ - ```=``` (pulsante verde)     : permette di finalizzare l'acquisto, dovrebbe essere premuto solo dopo aver "ricevuto" il pagamento
+ - ```UP!``` (pulsante blu)     : pulsante toggle, permette di scegliere se usare o meno i punti della tessera fedeltà. Non ha effetto se non è stata selezionata una tessera.
+ - ```X``` (pulsante rosso)     : cancella tutti i dati di acquisto, resettando anche il cliente e tessera scansionata
+ - ```Calc``` (pulsante giallo) : calcola il prezzo totale ed eventuale sconto, mostrandolo in alto a destra. Lo sconto è non nullo solo se c'è una tessera fedeltà
