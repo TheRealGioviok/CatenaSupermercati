@@ -7,11 +7,12 @@ import pygame
 
 
 class GUI:
-    def __init__(self, fullscreen = False, background = None, icon = None) -> None:
+    def __init__(self, fullscreen = False, background = None, icon = None, title = "window") -> None:
         # Initialize the pygame library.
         pygame.init()
         # Initialize the screen.
         self.background = None
+        
         if background:
             self.background = pygame.image.load(background)
         if fullscreen:
@@ -22,6 +23,8 @@ class GUI:
             self.background = pygame.transform.scale(self.background, (1366, 768))
         if icon:
             pygame.display.set_icon(pygame.image.load(icon))
+        # Set title.
+        pygame.display.set_caption(title)
         # Initialize the components dictionary. It is indexed by the component name.
         self.components = {}
         # Initialize component by Z index lookup table.
