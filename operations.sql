@@ -292,7 +292,7 @@ BEGIN
     
 
     -- Controlla che nessun acquisto abbia lo stesso pagamento o lo stesso carrello
-    SELECT ID_acquisto INTO ID_acquisto FROM Acquisto WHERE ID_carrello = ID_carrello OR ID_pagamento = ID_pagamento;
+    SELECT ID_acquisto INTO ID_acquisto FROM Acquisto WHERE Acquisto.ID_carrello = ID_carrello OR Acquisto.ID_pagamento = ID_pagamento;
     IF ID_acquisto IS NOT NULL THEN
         SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Acquisto già presente';
         return NULL;
