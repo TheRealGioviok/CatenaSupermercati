@@ -120,7 +120,7 @@ BEGIN
         return NULL;
     END IF;
     -- Controlla che il lotto non sia già presente nel database
-    IF EXISTS (SELECT * FROM Lotto WHERE Lotto.ID_prodotto = ID_prodotto AND Lotto.ID_consegna = ID_consegna) THEN
+    IF EXISTS (SELECT * FROM Lotto WHERE Lotto.codice_barre = codice_barre AND Lotto.ID_consegna = ID_consegna) THEN
         SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Lotto già presente nel database';
         return NULL;
     END IF;
@@ -140,7 +140,6 @@ BEGIN
     -- Aggiungi la merce al magazzino
     INSERT INTO Merce (ID_punto, ID_lotto, ID_prodotto, quantità, in_esposizione) VALUES (ID_punto, ID_lotto, ID_prodotto, quantita, 0);
     RETURN ID_lotto;
-
 END $$
 DELIMITER ;
 
