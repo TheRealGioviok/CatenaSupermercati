@@ -1,6 +1,7 @@
 # Lets test the library
 
 import mysql.connector
+import sys
 
 from GUI import *
 barcodes = None
