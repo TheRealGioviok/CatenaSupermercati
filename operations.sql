@@ -109,7 +109,7 @@ DELIMITER ;
 -- La funzione aggiungiLotto (OP.5.2) aggiunge un lotto al database
 
 DELIMITER $$
-CREATE FUNCTION aggiungiLotto (ID_prodotto INT, quantità INT, codice_barre CHAR(80), ID_consegna INT)
+CREATE FUNCTION aggiungiLotto (ID_prodotto INT, quantità INT, codice_barre CHAR(80), ID_consegna INT, scadenza DATE)
 RETURNS INT
 BEGIN
     DECLARE ID_lotto INT;
@@ -134,12 +134,13 @@ BEGIN
         SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Quantità non valida';
         return NULL;
     END IF;
-    INSERT INTO Lotto (ID_prodotto, quantita, codice_barre, ID_consegna) VALUES (ID_prodotto, quantità, codice_barre, ID_consegna);
+    INSERT INTO Lotto (ID_prodotto, ID_consegna, codice_barre, scadenza) VALUES (ID_prodotto, ID_consegna, codice_barre, scadenza);
     SELECT LAST_INSERT_ID() INTO ID_lotto;
     SELECT Consegna.ID_punto INTO ID_punto FROM Consegna WHERE Consegna.ID_consegna = ID_consegna;
     -- Aggiungi la merce al magazzino
     INSERT INTO Merce (ID_punto, ID_lotto, ID_prodotto, quantità, in_esposizione) VALUES (ID_punto, ID_lotto, ID_prodotto, quantita, 0);
     RETURN ID_lotto;
+
 END $$
 DELIMITER ;
 
