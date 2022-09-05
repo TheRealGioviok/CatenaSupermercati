@@ -73,8 +73,10 @@ def generatePromos(n=100):
     string = ""
     for _ in range(25):
         query = 'INSERT INTO promozione (tier, punti, DATA_INIZIO, DATA_FINE) VALUES (%s,%s,\"%s\",\"%s\");\n'
+        # start date is a random date between today and 1 year ago
+        startDate = fake.date_between(start_date="-1y", end_date="today")
         # execute query
-        string += query % (fake.random_int(min=0, max=2), fake.random_int(min=1, max=100), fake.date_between(start_date="today", end_date="+1y"), fake.date_between(start_date="+1y", end_date="+2y"))
+        string += query % (fake.random_int(min=0, max=2), fake.random_int(min=1, max=100), startDate, fake.date_between(start_date=startDate, end_date="+1y"))
     return string
 
 def generatePromotions(n=100):
