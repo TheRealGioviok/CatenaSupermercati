@@ -1,2 +1,3 @@
 pygame
 mysql-connector-python
+pyperclip
