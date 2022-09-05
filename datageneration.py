@@ -90,27 +90,29 @@ def generatePromotions(n=100):
     return string
 
 
-# Write the base data to a file
-with open("baseData.sql", "w") as f:
-    f.write(generateBaseData())
+
 
 if __name__ == "__main__":
     argv = sys.argv
     numberOfNames = argv[1] if len(argv) > 1 else 100
     numberOfProducts = argv[2] if len(argv) > 2 else 100
     numberOfLots = argv[3] if len(argv) > 3 else 1000
-    
+
+    # Write the base data to a file
+    with open("1.sql", "w") as f:
+        f.write(generateBaseData())
+
     # Write the output to a file
-    with open("names.sql", "w") as f:
+    with open("2.sql", "w") as f:
         f.write(generateNames(int(numberOfNames)))
 
-    with open("products.sql", "w") as f:
+    with open("3.sql", "w") as f:
         f.write(generateProductNames(int(numberOfProducts)))
 
-    with open("storage.sql", "w") as f:
+    with open("4.sql", "w") as f:
         f.write(generateStorage(int(numberOfLots)))
 
-    with open("promotions.sql", "w") as f:
+    with open("5.sql", "w") as f:
         f.write(generatePromotions(int(numberOfProducts)))
 
 
