@@ -3,8 +3,9 @@ Progetto Basi di Dati
 ## Setup ##
 Per setuppare il progetto, caricare sul motore mysql i file ```init.sql``` e ```operation.sql``` in sequenza.
 Per setuppare i dati di esempio, caricare i file ```1.sql```,```2.sql```,```3.sql```,```4.sql```,```5.sql``` in sequenza.<p>
-Essi generano un supermercato con una cassa, una consegna con diversi lotti di diversi prodotti, spostandone alcuni in esposizione, attivando inoltre promozioni su alcuni prodotti.
-Per installare i moduli richiesti per eseguire ```app.py```, basta usare il comando ```pip install -r requirements.txt```.
+Essi generano un supermercato con una cassa, una consegna con diversi lotti di diversi prodotti, spostandone alcuni in esposizione, attivando inoltre promozioni su alcuni prodotti.<p>
+Per installare i moduli richiesti per eseguire ```app.py```, basta usare il comando ```pip install -r requirements.txt```.<p>
+Inoltre è presente un file, ```app.pyw``` contenente lo stesso codice di ```app.py```, avviato però senza finestra di terminale.
 
 ## Generazione custom dei dati ##
 Il file ```datageneration.py``` include la logica di generazione dei dati di esempio del database.
