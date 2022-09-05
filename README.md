@@ -31,3 +31,5 @@ Ci sono 4 pulsanti colorati, ognuno con una funzione diversa:
  - ```UP!``` (pulsante blu)     : pulsante toggle, permette di scegliere se usare o meno i punti della tessera fedeltà. Non ha effetto se non è stata selezionata una tessera.
  - ```X``` (pulsante rosso)     : cancella tutti i dati di acquisto, resettando anche il cliente e tessera scansionata
  - ```Calc``` (pulsante giallo) : calcola il prezzo totale ed eventuale sconto, mostrandolo in alto a destra. Lo sconto è non nullo solo se c'è una tessera fedeltà
+## Esempio aspetto della GUI ## 
+![immagine](https://user-images.githubusercontent.com/64363733/188345401-11fbbddf-fc9c-4233-add5-431e8783dbd6.png)
