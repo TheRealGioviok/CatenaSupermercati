@@ -1,3 +1,7 @@
+DROP SCHEMA IF EXISTS catena;
+CREATE SCHEMA catena;
+USE catena;
+
 -- Promozione (ID_promo, tier, punti, data_inizio, data_fine)
 -- PromoProdotto (ID_promo, ID_prodotto)
 -- Prodotto (ID_prodotto, nome, codice_barre, prezzo)
