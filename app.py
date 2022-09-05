@@ -44,7 +44,7 @@ def getCard(component):
         print("Now current tier is", currentTier)
         currentCardPoints = card[3]
         # Lock the card info into the input box.
-        gui.getComponent("ibox3").lock("ID: " + str(card[0]) + " - " + tiers[currentTier] + " - Punti: " + str(card[3]))
+        gui.getComponent("ibox3").lock("ID: " + str(card[0]) + " - " + tiers[currentTier-1] + " - Punti: " + str(card[3]))
         # Lock the scan button.
         gui.getComponent("scan2Button").lock()
     else:
