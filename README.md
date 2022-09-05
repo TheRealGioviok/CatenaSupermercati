@@ -14,7 +14,7 @@ Qualora volesse solo cambiarsi il numero di dati generati, basta avviare lo scri
 Questo permette di modificare alcuni parametri. Si nota che il numero di promozioni generate è un quarto del numero di prodotti, e che il 70% dei prodotti verrà associato ad una promozione.
 
 ## Uso dell'interfaccia grafica ##
-Avviare semplicemente con ```app.py [checkoutId]```. ```checkoutID``` identifica la cassa che esegue l'interfaccia grafica.  Se non specificato, defaulta a ```0```.<p>
+Avviare semplicemente con ```app.py [checkoutId]```. ```checkoutID``` identifica la cassa che esegue l'interfaccia grafica.  Se non specificato, defaulta a ```1```.<p>
 Per il corretto funzionamento della GUI, si presuppone l'accesso su rete locale comune al database che deve essere chiamato ```catena```, che è il nome dato in ```init.sql```.
 ### Aggiungere e rimuovere prodotti ###
 L'interfaccia grafica permette di aggiungere e togliere merce dal carrello in base ad un codice a barre. 
