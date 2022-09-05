@@ -28,6 +28,7 @@ def moneyFormat(price):
 
 # The getCard function will return the card associated to a certain number.
 def getCard(component):
+    tiers = ["Family","Business","Enterprise"]
     global currentCard, currentTier, currentCardPoints, dbResponse, db
     
     gui = component.gui
@@ -42,10 +43,20 @@ def getCard(component):
         currentTier = card[2]
         print("Now current tier is", currentTier)
         currentCardPoints = card[3]
+        # Lock the card info into the input box.
+        gui.getComponent("ibox3").lock("ID: " + str(card[0]) + " - " + tiers[currentTier] + " - Punti: " + str(card[3]))
+        # Lock the scan button.
+        gui.getComponent("scan2Button").lock()
     else:
         currentCard = None
         currentTier = 0
         currentCardPoints = 0
+        # Unlock the card info into the input box.
+        gui.getComponent("ibox3").unlock()
+        # Unlock the scan button.
+        gui.getComponent("scan2Button").unlock()
+        # Tell the user that the card is not valid.
+        gui.getComponent("namePrice").setText("Tessera non valida!")
 
 def terminateTransaction(component, nulled = False):
     global dbResponse, currentCard, currentCardPoints, currentTier
@@ -63,7 +74,11 @@ def terminateTransaction(component, nulled = False):
     currentCard = None
     currentCardPoints = 0
     currentTier = 0
-    # return
+    # Unlock the card info into the input box.
+    gui.getComponent("ibox3").unlock()
+    # Unlock the scan button.
+    gui.getComponent("scan2Button").unlock()
+    # return 
     return
 
 def undoTransaction(component):
@@ -334,7 +349,7 @@ def main():
     gui.addComponent(quantityInput)
 
     # Create quantity inputBox.
-    cardInput = InputBox("ibox3", (920, 696), (300, 50),
+    cardInput = InputBox("ibox3", (840, 696), (380, 50),
                              ((0, 0, 0), (180, 180, 180), (0, 0, 0), (55, 55, 55)),
                              gui.getFont("default"),
                              None,
