@@ -4,6 +4,7 @@
 # The event handling of the components will be modifiable by the user using the GUI library.
 
 import pygame
+import pyperclip
 
 
 class GUI:
@@ -220,8 +221,17 @@ class Button (Drawable):
             self.step(self)
         else:
             self.step = lambda _: None
+        self.locked = False
+
+    def lock(self):
+        self.locked = True
+    
+    def unlock(self):
+        self.locked = False
 
     def events(self, events, pyInfo):
+        if self.locked:
+            return
         for event in events:
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if self.position[0] < pyInfo["mouse"][0] < self.position[0] + self.size[0] and self.position[1] < pyInfo["mouse"][1] < self.position[1] + self.size[1]:
@@ -495,6 +505,7 @@ class InputBox (Drawable):
         self.sstring = ""
         self.cursor = 0
         self.unselectedString = unselectedString
+        self.locked = False
 
     def clear(self):
         self.text = ""
@@ -506,8 +517,19 @@ class InputBox (Drawable):
         if clear:
             self.sstring = ""
         return cpy
+    
+    def lock(self, string):
+        self.sstring = string
+        self.locked = True
+    
+    def unlock(self, string = ""):
+        self.sstring = string
+        self.locked = False
 
     def events(self, events, pyInfo):
+        # If locked, don't do anything
+        if self.locked:
+            return
         for event in events:
             if event.type == pygame.MOUSEBUTTONDOWN:
                 # If the mouse is pressed and the mouse is over the input box, the input box is active.
@@ -520,9 +542,15 @@ class InputBox (Drawable):
                     self.active = False
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_BACKSPACE and self.active:
-                    self.sstring = self.sstring[:-1]
-                    if self.cursor >= len(self.sstring):
-                        self.cursor = len(self.sstring) - 1
+                    # If ctrl is pressed, delete the whole string
+                    if pygame.key.get_mods() & pygame.KMOD_CTRL:
+                        self.sstring = ""
+                        self.cursor = 0
+                    else:
+                        self.sstring = self.sstring[:-1]
+                        self.cursor -= 1
+                        if self.cursor >= len(self.sstring):
+                            self.cursor = len(self.sstring) - 1
                 elif event.key == pygame.K_RETURN:
                     self.action(self)
                     self.active = False
@@ -532,6 +560,10 @@ class InputBox (Drawable):
                 elif event.key == pygame.K_RIGHT:
                     if self.cursor < len(self.sstring):
                         self.cursor += 1
+                # If Ctrl + V is pressed, paste the clipboard into the input box.
+                elif event.key == pygame.K_v and pygame.key.get_mods() & pygame.KMOD_CTRL:
+                    if self.active:# use pyperclip
+                        self.sstring += pyperclip.paste()
                 else:
                     if self.active:
                         self.sstring += event.unicode
@@ -543,7 +575,7 @@ class InputBox (Drawable):
         # 2: Text colour (active)
         # 3: Text colour (not active)
         surf = pygame.Surface(self.size)
-        text = self.font.render(self.sstring if self.active or len(
+        text = self.font.render(self.sstring if self.locked or self.active or len(
             self.sstring) else self.unselectedString, True, self.colours[2] if self.active else self.colours[3])
         textRect = text.get_rect()
         PADX = 20
