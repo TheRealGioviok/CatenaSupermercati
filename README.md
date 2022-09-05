@@ -19,6 +19,9 @@ Per il corretto funzionamento della GUI, si presuppone l'accesso su rete locale 
 ### Aggiungere e rimuovere prodotti ###
 L'interfaccia grafica permette di aggiungere e togliere merce dal carrello in base ad un codice a barre. 
 Il comportamento dello scanner viene simulato da un box di input.
+Il box di input supporta, oltre che all'input tastiera classico, le shortcut seguenti:
+ - ```CTRL``` + ```BACKSPACE``` : Cancella l'intera stringa nel box
+ - ```CTRL``` + ```V```         : Incolla i contenuti della clipboard nel box
 Accanto ad esso, può essere inserita una quantità: positiva per aggiungere un prodotto, negativa per toglierlo.
 ### Aggiungere una tessera fedeltà ###
 Può anche essere selezionata una tessera cliente. Il comportamento dello scanner tessere è, ancora una volta, simulato da un input box.
