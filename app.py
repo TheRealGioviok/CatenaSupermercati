@@ -1,5 +1,3 @@
-# Lets test the library
-
 import mysql.connector
 import sys
 
