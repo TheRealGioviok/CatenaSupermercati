@@ -2,6 +2,7 @@
 Progetto Basi di Dati
 ## Setup ##
 Per setuppare il progetto, caricare sul motore mysql i file ```init.sql``` e ```operation.sql``` in sequenza.
+Per setuppare i dati di esempio, caricare i file ```1.sql```,```2.sql```,```3.sql```,```4.sql```,```5.sql``` in sequenza.
 Per installare i moduli richiesti per eseguire ```app.py```, basta usare il comando ```pip install -r requirements.txt```.
 
 ## Uso dell'interfaccia grafica ##
